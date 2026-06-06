@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Telegram support
+    url: https://t.me/viprasol_help
+    about: Chat with the Viprasol Tech team for quick questions.
+  - name: ✉️ Email support
+    url: mailto:support@viprasol.com
+    about: Reach out for commercial support or custom builds.
+  - name: 🌐 Viprasol Tech
+    url: https://viprasol.com
+    about: Fintech software, algorithmic trading, AI voice agents, and B2B SaaS.

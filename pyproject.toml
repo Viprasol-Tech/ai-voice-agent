@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-voice-agent"
+version = "0.1.0"
+description = "AI voice agent toolkit (STT to LLM to TTS) with ElevenLabs/Twilio adapters. — by Viprasol Tech."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Viprasol Tech Private Limited", email = "support@viprasol.com" }]
+keywords = [
+    "ai-voice-agent",
+    "voice-assistant",
+    "speech-to-text",
+    "text-to-speech",
+    "llm",
+    "twilio",
+    "elevenlabs",
+    "conversational-ai",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Telephony",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+elevenlabs = ["elevenlabs>=1.0"]
+twilio = ["fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9"]
+dev = ["ruff>=0.6", "mypy>=1.11", "pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://viprasol.com"
+Repository = "https://github.com/Viprasol-Tech/ai-voice-agent"
+Issues = "https://github.com/Viprasol-Tech/ai-voice-agent/issues"
+
+[project.scripts]
+ai-voice-agent = "ai_voice_agent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_voice_agent"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM", "PL", "RUF"]
+ignore = ["PLR2004"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["PLR2004", "SLF001"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
