@@ -86,7 +86,7 @@ from ai_voice_agent import VoiceAgent, FakeSTT, FakeLLM, FakeTTS
 agent = VoiceAgent(stt=FakeSTT(), llm=FakeLLM(name="Vira"), tts=FakeTTS())
 
 reply = agent.handle_text("What is your name?")
-print(reply.reply_text)        # -> "I'm Vira, an AI voice agent by Viprasol Tech."
+print(reply.reply_text)  # -> "I'm Vira, an AI voice agent by Viprasol Tech."
 print(len(reply.audio), "bytes of synthesized audio")
 ```
 
@@ -97,7 +97,7 @@ from ai_voice_agent import VoiceAgent, FakeSTT, FakeLLM, FakeTTS
 from ai_voice_agent.telephony import create_twilio_app
 
 agent = VoiceAgent(stt=FakeSTT(), llm=FakeLLM(), tts=FakeTTS())
-app = create_twilio_app(agent)   # point your Twilio number's webhook at /twilio/voice
+app = create_twilio_app(agent)  # point your Twilio number's webhook at /twilio/voice
 ```
 
 See [`examples/demo_conversation.py`](examples/demo_conversation.py) for a full runnable demo.
